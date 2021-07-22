@@ -1,42 +1,71 @@
 // query selectors
-const gridCanvas = document.querySelector('.container');
+const gridContainer = document.querySelector('.container');
 const resetButton = document.querySelector('#reset');
+const randomColor = Math.floor(Math.random() * 16777215).toString(16);
 
 // grid size variable
-const width = 16;
-// call function to create canvas
-createCanvas();
+let numBox = 42;
 
 // function to create canvas
-function createCanvas() {
-  for (let i = 0; i < width * width; i++) {
-    const square = document.createElement('div');
-    gridCanvas.appendChild(square);
-    square.classList.add('etch');
+function createCanvas(numBox) {
+  for (let i = 0; i < numBox * numBox; i++) {
+    let gridBox = document.createElement('div');
+    gridContainer.appendChild(gridBox);
+    gridBox.classList.add('box');
+    gridContainer.style.gridTemplateColumns = `repeat(${numBox}, 1fr)`;
+    gridContainer.style.gridTemplateRows = `repeat(${numBox}, 1fr)`;
   }
 }
 
-// queryselector for newly created div class .etch
-const squares = gridCanvas.querySelectorAll('.etch');
+// call function to create canvas
+createCanvas(numBox);
 
-// iterate to add event listeners to all .etch div
-squares.forEach((squares) => {
-  squares.addEventListener('mouseenter', function (e) {
-    e.target.style.backgroundColor = 'black';
+// querySelector for the grid inside the container
+const squares = document.querySelectorAll('.box');
+
+// iterate to add event listeners to all .square div
+squares.forEach((sqaure) => {
+  sqaure.addEventListener('mouseenter', function (e) {
+    e.target.style.backgroundColor = '#' + randomColor;
   });
 });
 
-//event listener ro reset the grid canvas
+//event listener to reset the grid canvas
 resetButton.addEventListener('click', function () {
-  const squares = gridCanvas.querySelectorAll('.etch');
-  squares.forEach((squares) => {
-    squares.style.backgroundColor = 'lightgray';
+  squares.forEach((square) => {
+    square.style.backgroundColor = 'white';
   });
+  clearGrid();
   promptSize();
 });
 
+//function to clear previous grid
+function clearGrid() {
+  const lastGrid = document.querySelectorAll('.box');
+  lastGrid.forEach((box) => {
+    gridContainer.removeChild(box);
+  });
+}
+
 // function to prompt user for grid size
 function promptSize() {
-  const gridSize = prompt('Please enter size of the grid (max 100)');
-  alert(gridSize);
+  let newGrid = prompt('Please enter size of the grid (min:16 - max:100)');
+  newGrid = parseInt(newGrid);
+
+  //loop to check the prompt input
+  if (newGrid < 16 || newGrid > 100) {
+    promptSize();
+  } else {
+    createCanvas(newGrid);
+  }
+
+  // querySelector for the grid inside the container
+  const squares = document.querySelectorAll('.box');
+
+  // iterate to add event listeners to all .square div
+  squares.forEach((sqaure) => {
+    sqaure.addEventListener('mouseenter', function (e) {
+      e.target.style.backgroundColor = '#' + randomColor;
+    });
+  });
 }
