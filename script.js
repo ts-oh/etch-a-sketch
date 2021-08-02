@@ -1,12 +1,20 @@
 // query selectors
 const gridContainer = document.querySelector('.container');
 const resetButton = document.querySelector('#reset');
-const randomColor = Math.floor(Math.random() * 16777215).toString(16);
 
-// grid size variable
+// rainbow effect on hover
+const randomColor = function () {
+  var letters = '0123456789ABCDEF';
+  var color = '';
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+
+// initial grid size variable
 let numBox = 42;
 
-// function to create canvas
 function createCanvas(numBox) {
   for (let i = 0; i < numBox * numBox; i++) {
     let gridBox = document.createElement('div');
@@ -17,7 +25,6 @@ function createCanvas(numBox) {
   }
 }
 
-// call function to create canvas
 createCanvas(numBox);
 
 // querySelector for the grid inside the container
@@ -26,7 +33,7 @@ const squares = document.querySelectorAll('.box');
 // iterate to add event listeners to all .square div
 squares.forEach((sqaure) => {
   sqaure.addEventListener('mouseenter', function (e) {
-    e.target.style.backgroundColor = '#' + randomColor;
+    e.target.style.backgroundColor = '#' + randomColor();
   });
 });
 
@@ -65,7 +72,7 @@ function promptSize() {
   // iterate to add event listeners to all .square div
   squares.forEach((sqaure) => {
     sqaure.addEventListener('mouseenter', function (e) {
-      e.target.style.backgroundColor = '#' + randomColor;
+      e.target.style.backgroundColor = '#' + randomColor();
     });
   });
 }

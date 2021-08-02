@@ -1,5 +1,5 @@
 * {
-  font-family: 'Roboto Mono';
+  font-family: 'system-ui';
   margin: 0;
 }
 
@@ -14,8 +14,4 @@ body {
   width: 500px;
   height: 500px;
   border: solid black 2px;
-}
-
-.box {
-  border: solid rgb(216, 216, 216) 0.1px;
 }
