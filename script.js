@@ -10,7 +10,7 @@ const randomColor = function () {
     color += letters[Math.floor(Math.random() * 16)];
   }
   return color;
-}
+};
 
 // initial grid size variable
 let numBox = 42;
@@ -25,7 +25,7 @@ function createCanvas(numBox) {
   }
   // querySelector for the grid inside the container
   const squares = document.querySelectorAll('.box');
-  
+
   // iterate to add event listeners to all .square div
   squares.forEach((sqaure) => {
     sqaure.addEventListener('mouseenter', function (e) {
@@ -35,7 +35,6 @@ function createCanvas(numBox) {
 }
 
 createCanvas(numBox);
-
 
 //event listener to reset the grid canvas
 resetButton.addEventListener('click', function () {
@@ -66,3 +65,4 @@ function promptSize() {
   } else {
     createCanvas(newGrid);
   }
+}
