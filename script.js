@@ -4,8 +4,8 @@ const resetButton = document.querySelector('#reset');
 
 // rainbow effect on hover
 const randomColor = function () {
-  var letters = '0123456789ABCDEF';
-  var color = '';
+  const letters = '0123456789ABCDEF';
+  let color = '';
   for (var i = 0; i < 6; i++) {
     color += letters[Math.floor(Math.random() * 16)];
   }
@@ -23,22 +23,23 @@ function createCanvas(numBox) {
     gridContainer.style.gridTemplateColumns = `repeat(${numBox}, 1fr)`;
     gridContainer.style.gridTemplateRows = `repeat(${numBox}, 1fr)`;
   }
+  // querySelector for the grid inside the container
+  const squares = document.querySelectorAll('.box');
+  
+  // iterate to add event listeners to all .square div
+  squares.forEach((sqaure) => {
+    sqaure.addEventListener('mouseenter', function (e) {
+      e.target.style.backgroundColor = '#' + randomColor();
+    });
+  });
 }
 
 createCanvas(numBox);
 
-// querySelector for the grid inside the container
-const squares = document.querySelectorAll('.box');
-
-// iterate to add event listeners to all .square div
-squares.forEach((sqaure) => {
-  sqaure.addEventListener('mouseenter', function (e) {
-    e.target.style.backgroundColor = '#' + randomColor();
-  });
-});
 
 //event listener to reset the grid canvas
 resetButton.addEventListener('click', function () {
+  const squares = document.querySelectorAll('.box');
   squares.forEach((square) => {
     square.style.backgroundColor = 'white';
   });
@@ -65,14 +66,3 @@ function promptSize() {
   } else {
     createCanvas(newGrid);
   }
-
-  // querySelector for the grid inside the container
-  const squares = document.querySelectorAll('.box');
-
-  // iterate to add event listeners to all .square div
-  squares.forEach((sqaure) => {
-    sqaure.addEventListener('mouseenter', function (e) {
-      e.target.style.backgroundColor = '#' + randomColor();
-    });
-  });
-}
