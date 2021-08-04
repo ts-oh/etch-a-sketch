@@ -23,7 +23,7 @@ function createCanvas(numBox) {
     gridContainer.style.gridTemplateColumns = `repeat(${numBox}, 1fr)`;
     gridContainer.style.gridTemplateRows = `repeat(${numBox}, 1fr)`;
   }
-  // querySelector for the grid inside the container
+
   const squares = document.querySelectorAll('.box');
 
   // iterate to add event listeners to all .square div
