@@ -1,8 +1,19 @@
-# etch-a-sketch
+# Etch a Sketch
 
-**This was a etch-a-sketch project from 'The Odin Project' fundamentals.**
+Live Demo: https://ts-oh.github.io/etch-a-sketch/
+
+## Screenshots
+
+![App Screenshot](./img/app_screenshot.png)
+
+## This is a etch-a-sketch project from 'The Odin Project'
 
 - Used: JavaScript, CSS, and HTML.
-- Learning Objectives: CSS gridbox and DOM manipulation with JS.
-- Optional: Rainbow coloring on hover added.
-- Future Plans: Change the reset button to only clear and seperate grid button without the use of prompt().
+
+- Optional Features:
+
+  - [x] Rainbow coloring on hover added.
+
+### Lessons/Comments
+
+This was a pretty cool project and alot of fun to work on. The hardest challenge was finding out how to dynamically create even fitting div boxes inside the container.

@@ -1,17 +1,59 @@
 * {
-  font-family: 'system-ui';
+  font-family: "Caveat", sans-serif;
+  font-size: 100%;
   margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: 3em;
+  margin-bottom: 0.5em;
+  color: rgb(248, 209, 95);
 }
 
 body {
-  margin: 32px auto;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(111, 19, 24);
+  border: 100px red inset;
+  padding: 1.5em;
+}
+
+.range-container {
+  display: flex;
+  width: 500px;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1em;
+}
+
+.range-container a {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: rgb(248, 209, 95);
+  padding: 0.5em 0.5em;
+  border: none;
+}
+.range-container a:hover {
+  cursor: pointer;
+}
+
+.range-container label {
+  font-size: 1.5em;
+  color: rgb(248, 209, 95);
+  font-weight: bold;
+}
+
+#input-range {
+  cursor: pointer;
+  width: 8em;
 }
 
 .container {
+  background-color: whitesmoke;
   margin: 0 auto;
   display: grid;
   width: 500px;
   height: 500px;
-  border: solid black 2px;
 }
